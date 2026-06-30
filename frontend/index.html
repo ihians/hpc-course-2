@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAF Duty Roster</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="header-badge">PAF</span>
+        <div>
+          <h1>Duty Roster</h1>
+          <p>Pakistan Air Force — IT Branch</p>
+        </div>
+      </div>
+      <div id="summary-bar">
+        <div class="summary-item">
+          <span id="total-count">0</span>
+          <label>Total</label>
+        </div>
+        <div class="summary-item pending">
+          <span id="pending-count">0</span>
+          <label>Pending</label>
+        </div>
+        <div class="summary-item on-duty">
+          <span id="onduty-count">0</span>
+          <label>On Duty</label>
+        </div>
+        <div class="summary-item completed">
+          <span id="completed-count">0</span>
+          <label>Completed</label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Add Duty Form ──────────────────────────────────────────────────── -->
+    <section class="card" id="form-section">
+      <h2>Assign Duty</h2>
+      <form id="add-form">
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="officer_name">Officer Name</label>
+            <input type="text" id="officer_name" placeholder="e.g. Ahmed Raza" required />
+          </div>
+
+          <div class="form-group">
+            <label for="rank">Rank</label>
+            <select id="rank" required>
+              <option value="">-- Select Rank --</option>
+              <option>Airman</option>
+              <option>Corporal</option>
+              <option>Sergeant</option>
+              <option>Flight Sergeant</option>
+              <option>Warrant Officer</option>
+              <option>Pilot Officer</option>
+              <option>Flying Officer</option>
+              <option>Flight Lieutenant</option>
+              <option>Squadron Leader</option>
+              <option>Wing Commander</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="post">Duty Post</label>
+            <input type="text" id="post" placeholder="e.g. Server Room, Gate 2, Ops Room" required />
+          </div>
+
+          <div class="form-group">
+            <label for="shift">Shift</label>
+            <select id="shift" required>
+              <option value="">-- Select Shift --</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Night</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="duty_date">Duty Date</label>
+            <input type="date" id="duty_date" required />
+          </div>
+
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Assign Duty</button>
+          <span id="form-message"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- ── Filter Bar ─────────────────────────────────────────────────────── -->
+    <section id="filter-bar">
+      <input type="text"   id="search-input"   placeholder="Search by name or post..." />
+      <select id="filter-shift">
+        <option value="">All Shifts</option>
+        <option>Morning</option>
+        <option>Afternoon</option>
+        <option>Night</option>
+      </select>
+      <select id="filter-status">
+        <option value="">All Statuses</option>
+        <option>Pending</option>
+        <option>On Duty</option>
+        <option>Completed</option>
+      </select>
+      <input type="date" id="filter-date" title="Filter by date" />
+    </section>
+
+    <!-- ── Duty Roster Table ──────────────────────────────────────────────── -->
+    <section class="card" id="table-section">
+      <h2>Duty Assignments</h2>
+      <div id="loading">Loading roster...</div>
+      <table id="roster-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Shift</th>
+            <th>Rank</th>
+            <th>Officer</th>
+            <th>Post</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <p id="empty-message" class="empty-msg" style="display:none;">
+        No duty assignments found. Use the form above to assign duties.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>PAF Duty Roster &mdash; IT Branch Internal Tool</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
