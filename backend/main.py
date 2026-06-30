@@ -55,7 +55,7 @@ class DutyUpdate(BaseModel):
 
 @app.get("/")
 def root():
-    return {"message": "PAF Duty Roster API is running"}
+    return {"message": "Duty Roster API is running"}
 
 
 @app.get("/duties")
