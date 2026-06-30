@@ -1,6 +1,6 @@
 # PAF Duty Roster
 
-A duty shift management tool for the Pakistan Air Force IT Branch.
+A duty shift management tool for the students of IT Branch.
 Used as a training application for Docker and Git workshops.
 
 ---
