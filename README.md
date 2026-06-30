@@ -8,7 +8,7 @@ Used as a training application for Docker and Git workshops.
 ## Project Structure
 
 ```
-paf-duty-roster/
+duty-roster/
 ├── frontend/
 │   ├── index.html      # Main HTML page
 │   ├── style.css       # Styling
@@ -30,7 +30,7 @@ paf-duty-roster/
 ### Step 1 — Build the backend image
 ```bash
 cd backend
-docker build -t paf-roster-backend .
+docker build -t roster-backend .
 ```
 
 ### Step 2 — Run the backend container
@@ -39,13 +39,13 @@ docker run -d \
   --name roster-backend \
   -p 8000:8000 \
   -v roster-data:/app/data \
-  paf-roster-backend
+  roster-backend
 ```
 
 ### Step 3 — Build the frontend image
 ```bash
 cd ../frontend
-docker build -t paf-roster-frontend .
+docker build -t roster-frontend .
 ```
 
 ### Step 4 — Run the frontend container
@@ -53,7 +53,7 @@ docker build -t paf-roster-frontend .
 docker run -d \
   --name roster-frontend \
   -p 80:80 \
-  paf-roster-frontend
+  roster-frontend
 ```
 
 ### Step 5 — Open the application
@@ -86,8 +86,8 @@ docker rm roster-backend
 docker rm roster-frontend
 
 # Remove an image
-docker rmi paf-roster-backend
-docker rmi paf-roster-frontend
+docker rmi roster-backend
+docker rmi roster-frontend
 
 # List all images
 docker images
