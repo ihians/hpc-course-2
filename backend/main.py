@@ -7,7 +7,7 @@ import os
 import uuid
 from datetime import datetime
 
-app = FastAPI(title="PAF Duty Roster API")
+app = FastAPI(title="Duty Roster API - FAST API Backend")
 
 # Allow the frontend (running in a browser) to call this API
 app.add_middleware(
